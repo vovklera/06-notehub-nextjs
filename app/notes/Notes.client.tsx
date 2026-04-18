@@ -45,7 +45,7 @@ export default function NotesClient() {
     }
 
     useEffect(() => {
-        if (isSuccess && data?.notes.length === 0){
+        if (isSuccess && data?.notes?.length === 0){
             toast.error("No notes found for your request.");
             return;
         }
@@ -67,7 +67,7 @@ export default function NotesClient() {
             {isLoading && <Loader/>}
             {isError && <ErrorMessage/>}
             <Toaster position={"top-center"}/>
-            {notes && notes.length >0 && (<NoteList notes={notes}/>)}
+            {notes.length > 0 && (<NoteList notes={notes}/>)}
             {isModalOpen && (
                 <Modal onClose={closeModal}>
                     <NoteForm onClose={closeModal}/>
